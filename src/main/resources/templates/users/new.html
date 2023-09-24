@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>New Person</title>
+    <style>
+        h2 {
+            text-align: center;
+            font-size: 40px;
+        }
+
+        body {
+            background-color: lightskyblue;
+            text-align: center;
+            font-size: 35px;
+        }
+
+        #InfoDiv {
+            background-color: lightgray;
+            margin: auto;
+            width: 70%;
+            border: 5px dimgray;
+            padding: 10px;
+        }
+
+        table {
+            text-align: center;
+            width: 100%;
+        }
+
+        a {
+            color: darkslateblue;
+        }
+
+        input {
+            color: black;
+            background-color: honeydew;
+            text-align: center;
+            font-size: large;
+        }
+
+    </style>
+</head>
+<body>
+<div id="InfoDiv">
+    <h2>Create new Student in Orchestra BlueDevils</h2>
+    <form th:method="POST" th:action="@{/users}" th:object="${user}">
+        <label for="name">Enter the name: </label>
+        <input type="text" th:field="*{name}" id="name" placeholder="Name"/>
+        <br>
+        <label for="age">Enter the age: </label>
+        <input type="text" th:field="*{age}" id="age" placeholder="Age"/>
+        <br>
+        <label for="instrument">Enter the Instrument: </label>
+        <input type="text" th:field="*{instrument}" id="instrument" placeholder="Instrument"/>
+        </br>
+        <hr/>
+        <input type="submit" value="Create Student"/>
+    </form>
+</div>
+</body>
+</html>

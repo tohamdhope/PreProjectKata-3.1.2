@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+    <style>
+        h1 {
+            text-align: center;
+            font-size: 40px;
+        }
+
+        body {
+            background-color: lightskyblue;
+            text-align: center;
+            font-size: 35px;
+        }
+
+        div {
+            background-color: lightgray;
+            margin: auto;
+            width: 60%;
+            border: 5px dimgray;
+            padding: 10px;
+        }
+
+        table {
+            text-align: center;
+            width: 100%;
+        }
+
+        #header {
+            background-color: gray;
+        }
+
+        #anotherSpace {
+            color: lightslategrey;
+        }
+
+        #anotherSpace:hover {
+            background-color: darkslateblue;
+        }
+
+        a {
+            color: lightslategrey;
+        }
+
+        input {
+            color: black;
+            background-color: honeydew;
+            text-align: center;
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Update/Delete User</h1>
+</header>
+<main>
+    <div>
+        <table>
+            <tr id="header">
+                <th>Name</th>
+                <th>Age</th>
+                <th>Instrument</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr id="anotherSpace">
+                <td th:utext="${user.getName()}">name</td>
+                <td th:utext="${user.getAge()}">age</td>
+                <td th:utext="${user.getInstrument()}">instrument</td>
+                <td>
+                    <a th:href="@{/users/{id}/edit(id=${user.getId()})}"> <label>
+                        <input value="Edit"/>
+                    </label></a>
+                </td>
+                <td>
+                    <form th:method="DELETE" th:action="@{/users/{id}(id=${user.getId()})}">
+                        <input type="submit" value="Delete"/>
+                    </form>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</main>
+</body>
+</html>
